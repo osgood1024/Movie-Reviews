@@ -1,3 +1,22 @@
 Rails.application.routes.draw do
+  get 'watchlists/new'
+  get 'watchlists/create'
+  get 'watchlists/destroy'
+  get 'reviews/new'
+  get 'reviews/create'
+  get 'reviews/edit'
+  get 'reviews/update'
+  get 'reviews/destroy'
+  get 'reviews/index'
+  get 'reviews/show'
+  get 'movies/index'
+  get 'movies/show'
+  get 'users/new'
+  get 'users/create'
+  get 'users/edit'
+  get 'users/update'
+  get 'users/destroy'
+  get 'users/index'
+  get 'users/show'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
