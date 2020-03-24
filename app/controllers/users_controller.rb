@@ -2,6 +2,12 @@ class UsersController < ApplicationController
 
   before_action :find_user, only: [:show, :edit, :update]
 
+  def index
+    @users = User.all
+  end
+
+  def show; end
+
   def new
     @user = User.new
   end
@@ -25,6 +31,7 @@ class UsersController < ApplicationController
     else
       flash[:errors] = @user.errors.full_messages
       redirect_to edit_user_path
+    end
   end
 
   def destroy
@@ -32,22 +39,14 @@ class UsersController < ApplicationController
     redirect_to new_user_path
   end
 
-  def index
-    @users = User.all
-  end
-
-  def show; end
-
   private 
 
-    def user_params
-      params.require(:user).permit!
-    end
+  def user_params
+    params.require(:user).permit!
+  end
 
-    def find_user
-      @user = User.find(params[:id])
-    end
-
+  def find_user
+    @user = User.find(params[:id])
   end
 
 end
