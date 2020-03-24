@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
 
   before_action :find_review ,only: [:show, :edit, :update, :destroy]
+
   def new
     @review=Review.new()
   end
@@ -31,7 +32,7 @@ class ReviewsController < ApplicationController
 
   def destroy
     @review.destroy
-    redirect_to reviews_show_path(@review.users)
+    redirect_to reviews_show_path(@review.users.id)
 
   end
 
