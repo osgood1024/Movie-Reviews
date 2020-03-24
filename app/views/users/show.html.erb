@@ -1,2 +1,10 @@
 <!-- Users Show Page -->
 <h1><%= @user.name %></h1>
+
+<!-- Displays users watchlist -->
+<h2>Watchlist</h2>
+<% @user.watchlists.each do |watchlist| %>
+
+	<p><%= watchlist.movie.title %> </p>
+
+<% end %>
