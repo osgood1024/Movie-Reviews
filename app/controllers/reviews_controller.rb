@@ -33,7 +33,6 @@ class ReviewsController < ApplicationController
   def destroy
     @review.destroy
     redirect_to reviews_show_path(@review.users.id)
-
   end
 
   def index
@@ -41,6 +40,8 @@ class ReviewsController < ApplicationController
   end
 
   def show
+    @movies=Movie.all
+    @users=User.all
   end
   
   private

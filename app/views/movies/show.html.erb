@@ -1,2 +1,16 @@
-<h1>Movies#show</h1>
-<p>Find me in app/views/movies/show.html.erb</p>
+<h1><%= @movie.title %></h1>
+
+<h3>Reviews:</h3>
+<ul>
+<% @movie.reviews.each do |review| %>
+<li>
+Username: <%= review.user.name %><br>
+Rating: <%= review.rating %><br>
+Description: <%=review.description %> <br>
+Like: <%= review.likes %>
+</li>
+<br>
+<% end %>
+</ul>
+
+<p><%= link_to "add review", new_review_path  %></p>
