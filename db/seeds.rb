@@ -18,7 +18,12 @@ while page <= 1
   #looping through the data to fill our movie database
   popular_movies_list.each do |movie|
       Movie.create({
-        title: movie["title"]
+        title: movie["title"],
+        poster_path: movie["poster_path"],
+        backdrop_path: movie["backdrop_path"],
+        genre: movie["genre_ids"].first,
+        overview: movie["overview"],
+        release_date: movie["release_date"]
       })
   end
   #Increments to the next page
