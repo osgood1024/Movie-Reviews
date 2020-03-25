@@ -4,11 +4,30 @@ Review.destroy_all
 User.destroy_all
 Watchlist.destroy_all
 
+#gets genre based off of the passed in genre_id
+def get_genre(genres, genre_id)
+  genres.each do |genre|
+    genre.each do |key, val|
+      if key == "id"
+        if val == genre_id
+          return genre["name"]
+        end
+      end
+    end
+  end
+end
+
 api_key = ENV['SECRET_KEY']
 #page number to retrive data from
 page = 1
 #Loops through max amount of pages
-while page <= 1
+
+#Getting genre hash from movies database
+resp = RestClient.get('https://api.themoviedb.org/3/genre/movie/list?api_key=4d53af2a0263d8997362e095ef2fc1d4&language=en-US')
+data = JSON.parse(resp)
+genres = data["genres"]
+
+while page <= 500
   #Making the request to the movie database 
   resp = RestClient.get("https://api.themoviedb.org/3/movie/popular/?api_key=#{api_key}&language=en-US&page=#{page}")
   #parse 
@@ -21,7 +40,7 @@ while page <= 1
         title: movie["title"],
         poster_path: movie["poster_path"],
         backdrop_path: movie["backdrop_path"],
-        genre: movie["genre_ids"].first,
+        genre: get_genre(genres, movie["genre_ids"].first),
         overview: movie["overview"],
         release_date: movie["release_date"]
       })
@@ -55,3 +74,4 @@ end
       user_id: User.all.sample.id
   })
 end
+
