@@ -36,5 +36,4 @@ yarn-debug.log*
 .yarn-integrity
 
 #Ignore our api key
-
-/db/key.rb
+/.env
