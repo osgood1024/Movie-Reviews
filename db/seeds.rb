@@ -11,37 +11,26 @@ Review.destroy_all
 User.destroy_all
 Watchlist.destroy_all
 
-20.times do 
-    Movie.create({
-      title: Faker::Book.title 
-    })
-  end
 
 
-20.times do 
-    User.create({
-        name: Faker::Name.name_with_middle
-    })
-end
+#Making the request to the movie database 
+resp = RestClient.get("https://api.themoviedb.org/3/movie/popular/?api_key=#{API_KEY}&language=en-US&page=1")
+#parse 
+data = JSON.parse(resp)
 
-40.times do 
-    Review.create({
-      rating: Faker::Number.between(from: 1, to: 10),
-      description: Faker::String.random(length: 30..60),
-      likes: Faker::Number.between(from: 1, to: 30),
-      movie_id: Movie.all.sample.id,
-      user_id: User.all.sample.id
-    })
-  end
+popular_movies_list = data["results"]
 
 
-30.times do 
-    Watchlist.create({
-        movie_id: Movie.all.sample.id,
-        user_id: User.all.sample.id
-    })
+ 
+popular_movies_list.each do |movie|
+  movie.each do |key, val|
+    if key == "title"
+      Movie.create({
+        title: val
+      })
     end
-
+  end
+end
 
 
 
