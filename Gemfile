@@ -59,3 +59,5 @@ gem 'faker'
 gem 'rest-client'
 
 gem 'json'
+
+gem 'dotenv-rails', groups: [:development, :test]
