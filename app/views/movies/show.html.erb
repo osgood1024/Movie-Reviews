@@ -1,13 +1,26 @@
 <h1><%= @movie.title %></h1>
 
+<h3>Released: <%= @movie.release_date %></h3>
+
+<h3>Genre: <%= @movie.genre %></h3>
+
+<h1>Description:</h1>
+<h2><%= @movie.overview %></h2>
+
+
+<!-- Poster -->
+<img src="https://image.tmdb.org/t/p/w500/<%= @movie.poster_path %>" alt="Movie Poster of <%@movie.title%>">
+<!-- Backdrop -->
+<img src="https://image.tmdb.org/t/p/original<%= @movie.backdrop_path %>" alt="Movie Backdrop of <%@movie.title%>">
+
 <h3>Reviews:</h3>
 <ul>
-<% @movie.reviews.each do |review| %>
+	<% @movie.reviews.each do |review| %>
 <li>
-Username: <%= review.user.name %><br>
-Rating: <%= review.rating %><br>
-Description: <%=review.description %> <br>
-Like: <%= review.likes %>
+	Username: <%= review.user.name %><br>
+	Rating: <%= review.rating %><br>
+	Description: <%=review.description %> <br>
+	Like: <%= review.likes %>
 </li>
 <br>
 <% end %>

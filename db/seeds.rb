@@ -41,7 +41,7 @@ end
 40.times do 
   Review.create({
     rating: Faker::Number.between(from: 1, to: 10),
-    description: Faker::String.random(length: 30..60),
+    description: Faker::Hipster.paragraph(sentence_count: 3, supplemental: false, random_sentences_to_add: 8),
     likes: Faker::Number.between(from: 1, to: 30),
     movie_id: Movie.all.sample.id,
     user_id: User.all.sample.id
