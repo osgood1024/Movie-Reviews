@@ -56,8 +56,14 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 #Used to create dummy data
 gem 'faker'
 
+#Rest client for rails
 gem 'rest-client'
 
+#Parses json
 gem 'json'
 
+#Hides key
 gem 'dotenv-rails', groups: [:development, :test]
+
+#Bulma Gem for rails (CSS Framework)
+gem "bulma-rails", "~> 0.8.0"
