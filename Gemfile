@@ -65,5 +65,5 @@ gem 'json'
 #Hides key
 gem 'dotenv-rails', groups: [:development, :test]
 
-#Bulma Gem for rails (CSS Framework)
-gem "bulma-rails", "~> 0.8.0"
+#Bootstrap Framework
+gem 'bootstrap', '~> 4.4.1'
