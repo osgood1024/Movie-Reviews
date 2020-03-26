@@ -3,4 +3,9 @@ class User < ApplicationRecord
 	has_many :movies, through: :reviews
 	has_many :watchlists
 	has_many :movies, through: :watchlists
+
+	validates :name, presence: true, uniqueness: true
+
+	has_secure_password
+
 end

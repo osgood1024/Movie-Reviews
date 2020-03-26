@@ -8,4 +8,7 @@
 <%= form_for @user do |f| %>
 	<%= f.label :name %> <br>
 	<%= f.text_field :name %><br>
+	<%= f.label :password %><br>
+	<%= f.password_field :password %>
+	<%= f.submit %>
 <% end %>
