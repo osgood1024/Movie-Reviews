@@ -1,29 +1,49 @@
-<h1><%= @movie.title %></h1>
-
-<h3>Released: <%= @movie.release_date %></h3>
-
-<h3>Genre: <%= @movie.genre %></h3>
-
-<h1>Description:</h1>
-<h2><%= @movie.overview %></h2>
 
 
-<!-- Poster -->
-<img src="https://image.tmdb.org/t/p/w500/<%= @movie.poster_path %>" alt="Movie Poster of <%=@movie.title%>">
-<!-- Backdrop -->
-<img src="https://image.tmdb.org/t/p/original<%= @movie.backdrop_path %>" alt="Movie Backdrop of <%=@movie.title%>">
+<div class="hero">
+	<div class="container">
 
-<h3>Reviews:</h3>
-<ul>
-	<% @movie.reviews.each do |review| %>
-<li>
-	Username: <%= review.user.name %><br>
-	Rating: <%= review.rating %><br>
-	Description: <%=review.description %> <br>
-	Like: <%= review.likes %>
-</li>
-<br>
-<% end %>
-</ul>
 
-<p><%= link_to "add review", new_review_path  %></p>
+	<h1><%= @movie.title %></h1>
+
+	<h3>Released: <%= @movie.release_date %></h3>
+
+	<h3>Genre: <%= @movie.genre %></h3>
+
+	<h1>Description:</h1>
+	<h2><%= @movie.overview %></h2>
+
+
+	<!-- Poster -->
+	<img src="https://image.tmdb.org/t/p/w500/<%= @movie.poster_path %>" alt="Movie Poster of <%=@movie.title%>">
+
+	<!-- Backdrop -->
+	<div class="hero">
+		
+				<img src="https://image.tmdb.org/t/p/original<%= @movie.backdrop_path %>" alt="Movie Backdrop of <%=@movie.title%>">
+
+	</div>
+
+	<!-- Reviews -->
+	<article class="media">
+		<figure class="media-left">
+			<%= @movie.title %>
+		</figure>
+		<div class="media-content">
+			<div class="content">
+				<p>
+					<% @movie.reviews.each do |review| %>
+						<strong><%= review.user.name %></strong> 
+						<small>Rating: <%= review.rating %></small> <br>
+						<br>
+						<%=review.description %> 
+					<% end %>
+				</p>
+			</div>
+		</div>
+		<div class="media-right">
+			<button class="delete"></button>
+		</div>
+	</article>
+</div>
+</div>
