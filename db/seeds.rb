@@ -51,9 +51,10 @@ end
 
 #Creats 20 dummy users
 20.times do 
-  User.create({
-      name: Faker::Name.name_with_middle
-  })
+    User.create({
+        name: Faker::Name.name_with_middle,
+        password: '123'
+    })
 end
 
 #Creates 40 dummy reviews
