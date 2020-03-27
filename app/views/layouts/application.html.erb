@@ -8,20 +8,44 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top ">
+    <div class="container">
+      <a class="navbar-brand" href="">Movie Reviews Website</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <% if @current_user %>
+          <li class="nav-item">
+            <a class="nav-link" href="<%= movies_path %>">All Movies</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="<%= users_path %>">See All Users</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="<%=new_review_path%>">Create A Review</a>
+          </li>
+         
+          <%# <a href="" class="nav-item nav-link">
+            <p><%= link_to 'Log-Out', destroy_session_path, method: :delete %></p>
+          <%# </a>  %>
+          <li class="nav-item">
+            <a href="" ><%= link_to 'Log Out',destroy_session_path, method: :delete%></a>
+          </li>
+          <% else %>
+          <li class='nav-item'>
+          <a href=""> <%= link_to 'Login', new_login_path %> </a>
+          </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </nav>
+    <nav class = "nav nav-pillsn nav-fill">
 
-  <body>
-    <ul>
-        <li><%= link_to 'All movies', movies_path %></li>
-        <li><%= link_to 'See all users', users_path %></li>
-        <li><%= link_to 'New Review', new_review_path %></li>
-        <% if @current_user %>
-          <li class='right'><%= link_to 'Log-Out', destroy_session_path, method: :delete %></li>
-          <li class='right'>Welcome <%= @current_user.name %></li>
-        <% else %>
-          <li class='right'><%= link_to 'Sign-up', new_user_path %></li>
-          <li class='right'><%= link_to 'Login', new_login_path %></li>
-        <% end %>
-    </ul>
+
+    </nav>
 
     <%= yield %>
   </body>

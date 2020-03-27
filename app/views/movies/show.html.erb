@@ -1,10 +1,14 @@
 
 
-<div class="hero">
-	<div class="container">
+<div class="jumbotron" style="background-image: url(https://image.tmdb.org/t/p/original<%= @movie.backdrop_path %>); height: 500px; width: 100%; background-position: center; background-repeat: no-repeat;  max-width: 100%;
+  ">
+</div>
+<div class="container" style = "text-align: center;">
+<div class="card">
+	<!-- Poster -->
+	<img src="https://image.tmdb.org/t/p/w500/<%= @movie.poster_path %>" alt="" class="card-img-top" style="width: 20%; margin: auto;">
 
-
-	<h1><%= @movie.title %></h1>
+	<h1 class ="card-title"><%= @movie.title %></h1>
 
 	<h3>Released: <%= @movie.release_date %></h3>
 
@@ -13,16 +17,11 @@
 	<h1>Description:</h1>
 	<h2><%= @movie.overview %></h2>
 
+</div>
 
-	<!-- Poster -->
-	<img src="https://image.tmdb.org/t/p/w500/<%= @movie.poster_path %>" alt="Movie Poster of <%=@movie.title%>">
 
 	<!-- Backdrop -->
-	<div class="hero">
-		
-				<img src="https://image.tmdb.org/t/p/original<%= @movie.backdrop_path %>" alt="Movie Backdrop of <%=@movie.title%>">
-
-	</div>
+	
 
 	<!-- Reviews -->
 	<article class="media">
@@ -44,6 +43,9 @@
 		<div class="media-right">
 			<button class="delete"></button>
 		</div>
+</div>
 	</article>
+
+	
 </div>
 </div>

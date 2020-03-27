@@ -1,12 +1,30 @@
-<h1>Movies</h1>
+</div>
+<!-- Page Content -->
+<div class="container">
 
-<ul>
-<% num = 1 %>
-<% @movies.each do |movie| %>
+  <h1 class="font-weight-light text-center  mt-4 mb-0">Popular Movies</h1>
 
-        <li>
+  <hr class="mt-2 mb-5">
+
+  <div class="row text-center text-lg-left">
+
+
+<% @movies.first(40).each do |movie| %>
+    <div class="col-lg-3 col-md-4 col-6">
+    <div class="box">
+        <a href="#" class="d-block mb-4 h-100">
+            <img class="img-fluid img-thumbnail" src="https://image.tmdb.org/t/p/original<%=movie.poster_path %>" alt="">
+        </a>
+        <div class="text-center">
             <%=link_to movie.title, movie %>
-        </li>
+        
+        </div>
+    </div>
 
+    </div>
 <% end %>
-</ul>
+  </div>
+
+</div>
+
+
