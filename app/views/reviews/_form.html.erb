@@ -1,23 +1,37 @@
 
 
+<div class="card text-center">
+    <div class="card-body">
+        <img class="card-img-top " src="https://icons-for-free.com/iconfiles/png/512/mood+18px-131987943134841189.png" style="width: 20%"alt="Card image">
+        
+        <%= form_for @review do |f| %>
 
+            <div class="card-title">
+				<%= f.label :rating %>
+            </div>
+            <%= f.text_field :rating %>
 
-    
-<%= form_for @review do |f| %>
-<%= f.label :rating %>
-<%= f.number_field :rating %>
-<br>
-<%= f.label :description %>
-<%= f.text_area :description %>
-<br>
-<%= f.label :likes %>
-<%= f.number_field :likes %>
-<br>
-<%= f.label :movie_id %>
+			<div class="card-title">
+				<%= f.label :description %>
+            </div> <%= f.text_field :description %>
+
+			<div class="card-title">
+				<%= f.label :likes %>
+            </div> <%= f.text_field :likes %>
+			<br>
+			<br>
+			<%= f.label :movie_id %>
 <%= f.collection_select :movie_id, Movie.all, :id, :title %>
 <br>
 <%= f.label :user_id %>
 <%= f.collection_select :user_id, User.all , :id, :name %>
 <br>
-<%= f.submit %>
-<% end %>
+<br>
+            <div class="btn btn-primary btn-light"><%= f.submit  %></div>
+            
+        <% end %>
+    </div>
+
+</div>
+
+    
