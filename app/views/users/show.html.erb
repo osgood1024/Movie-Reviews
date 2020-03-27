@@ -1,30 +1,63 @@
 <!-- Users Show Page -->
-<h1><%= @user.name %></h1>
-
-<!-- Displays users watchlist -->
-<h2>Watchlist</h2>
-<ul>
-<% @user.watchlists.each do |watchlist| %>
-<li>
-	
-	Title: <%= watchlist.movie.title %> - <% if @current_user.name == watchlist.user.name  %>
-	<%= button_to "Remove from watchlist", watchlist_path(watchlist), method: :delete %>
-	<% end %>
-	<p>Genre: <%= watchlist.movie.genre %></p>
-	<p>Release date: <%= watchlist.movie.release_date %></p>
-	<img src="https://image.tmdb.org/t/p/w500/<%= watchlist.movie.poster_path %>">
-	<br>
-	<br>
-	Overview:<%= watchlist.movie.overview %>
-	<br>
-	<% if @current_user.name == watchlist.user.name  %>
-	<%= link_to "add review" , movie_review_path(watchlist.movie)%>
-	<% end %>
-</li>
-
+<div class="jumbotron jumbotron-fluid text-center bg-info" style = "width: 100%; background: rgb(63,94,251);
+background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(146,70,252,1) 100%); ">
+	<div class="container">
+		<h1 class="text-light"><%= @user.name %>'s Home Page</h1>
+	</div>
+</div>
 <br>
-</ul>
-<% end %>
 
+<div class="container">
+	<h1 class="font-weight-light text-center  mt-4 mb-0">Watchlist</h1>
+
+	<hr class="mt-2 mb-5">
+
+	<div class="row text-center text-lg-left">
+
+
+	
+						<% @user.watchlists.each do |watchlist| %>
+		<div class="col-lg-3 col-md-4 col-6">
+			<div class="box">
+
+
+				<div class="card text-center" style = "width: 100%;">
+					<ul>
+
+						<img src="https://image.tmdb.org/t/p/w500/<%= watchlist.movie.poster_path %>" alt="" class="card-img-top" style="width: 100%; margin: auto;">
+						<br>
+						<div class="card-body">
+			
+							<div class="card-title">
+								<%= watchlist.movie.title %> 
+			
+							</div>
+
+							<div class="card-text">Genre: <%= watchlist.movie.genre %></div>
+
+							<p class="card-text">Release date: <%= watchlist.movie.release_date %></p>
+							<br>
+							Overview:<%= watchlist.movie.overview %>
+							<br>
+						</div>
+			
+						<% if @current_user.name == watchlist.user.name  %>
+						<%= button_to "Remove from Watchlist", watchlist_path(watchlist), method: :delete %>
+						<% end %>
+						<br>
+						<% if @current_user.name == watchlist.user.name  %>
+						<%= link_to "add review" , movie_review_path(watchlist.movie)%>
+						<% end %>
+						<br>
+					</ul>
+		
+				</div>
+			</div>
+
+		</div>
+	<% end %>
+	</div>
+
+</div>
 
 
