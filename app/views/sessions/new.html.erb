@@ -13,9 +13,10 @@
 
 
 <!-- LOG IN FORM -->
-<div class="card text-center">
-    <div class="card-body">
-        <img class="card-img-top " src="https://img.icons8.com/cotton/2x/movie-beginning.png" style="width: 20%"alt="Card image">
+<div class="card-body">
+    <div class="card text-center">
+        <img class="card-img-top " src="https://img.icons8.com/cotton/2x/movie-beginning.png" style="width: 20% ; margin: auto;"alt="Card image">
+        <h1 style="margin-bottom: 10pt;">Sign In</h1>
         
         <%= form_for :session, url: login_path do |f| %> 
 
@@ -37,8 +38,8 @@
 
             <div class="btn btn-primary btn-light"><%= f.submit  %></div>
             
-        <% end %>
+       <% end %>
+        <a style="margin: 10pt 0pt 10pt 0pt;"href="<%=  new_user_path %>">Don't have an account yet?</a>
     </div>
-  <%= link_to "Don't have an account yet?", new_user_path %>
 
 </div>
