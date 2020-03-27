@@ -1,18 +1,33 @@
 <!-- User Index -->
-<h1>All Movie Reviews</h1>
-<br>
-<br>
 
-<!-- Displays all users -->
-<ul>
-	<% @users.each do |user| %>
-		<li>
-			<%= link_to user.name, user %> <br>
+<div class="jumbotron jumbotron-fluid text-center bg-info" style = "width: 100%; background: rgb(63,94,251);
+background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(146,70,252,1) 100%); ">
+	<div class="container">
+		<h1>See What Others Want To Watch!</h1>
+	</div>
+</div>
 
+
+  <hr class="mt-2 mb-5">
+
+  <div class="row text-center text-lg-left">
+
+
+<% @users.each do |user| %>
+    <div class="col-lg-3 col-md-4 col-6">
+    <div class="box">
+        <a href="#" class="d-block mb-4 h-100">
+            <img class="img-fluid img-thumbnail" src="data:image/png;base64,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" alt="">
+        </a>
+        <div class="text-center">
+            <%= link_to user.name, user %>
 			<%user.list_watchlist.each do |watchlist|%>
 				<p>-<%= watchlist %></p>
 			<% end %>
 			<br>
-		</li>
-	<% end %>
-</ul>
+        </div>
+    </div>
+
+    </div>
+<% end %>
+  </div>
