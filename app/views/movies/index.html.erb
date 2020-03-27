@@ -9,7 +9,7 @@
   <div class="row text-center text-lg-left">
 
 
-<% @movies.first(40).each do |movie| %>
+<% @movies.first(400).each do |movie| %>
     <div class="col-lg-3 col-md-4 col-6">
     <div class="box">
         <a href="#" class="d-block mb-4 h-100">
@@ -17,7 +17,6 @@
         </a>
         <div class="text-center">
             <%=link_to movie.title, movie %>
-        
         </div>
     </div>
 
