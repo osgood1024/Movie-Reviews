@@ -17,6 +17,16 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <% if @current_user %>
+
+          
+           <li class="nav-item">
+            <%= form_tag(movies_path, method: 'get', class: 'navbar-form navbar-right') do %>
+            <%= search_field_tag 'search', params[:search], class: 'form-control', placeholder: 'Search Movie title'  %>
+            <%= submit_tag "Search", :name => nil %>
+            <% end %>
+          </li>
+
+
           <li class="nav-item">
             <a class="nav-link" href="<%= user_path(@current_user.id) %>"><%= @current_user.name %>'s Homepage</a>
           </li>
@@ -26,11 +36,6 @@
           <li class="nav-item">
             <a class="nav-link" href="<%= users_path %>">See All Users Watchlists</a>
           </li>
- 
-         
-          <%# <a href="" class="nav-item nav-link">
-            <p><%= link_to 'Log-Out', destroy_session_path, method: :delete %></p>
-          <%# </a>  %>
           <li class="nav-item">
             <a href="" ><%= link_to 'Log Out',destroy_session_path, method: :delete%></a>
           </li>
