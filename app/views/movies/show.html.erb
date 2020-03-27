@@ -1,4 +1,6 @@
 
+<%= button_to "add to watchlist", user_watchlist_path(watchlist:{user_id:@current_user.id,movie_id:@movie.id}),method: :post %>
+
 
 <div class="jumbotron" style="background-image: url(https://image.tmdb.org/t/p/original<%= @movie.backdrop_path %>); height: 500px; width: 100%; background-position: center; background-repeat: no-repeat;  max-width: 100%;
   ">
@@ -14,38 +16,30 @@
 
 	<h3>Genre: <%= @movie.genre %></h3>
 
-	<h1>Description:</h1>
-	<h2><%= @movie.overview %></h2>
 
-</div>
-
-
-	<!-- Backdrop -->
+<hr>
+<h3>Reviews:</h3>
+<ul>
+	<% @movie.reviews.each do |review| %>
 	
+<li>
+	Username: <%= review.user.name %><br>
+	Rating: <%= review.rating %><br>
+	Description: <%=review.description %> <br>
+	Like: <%= review.likes %> <br>
+	<% if @current_user.name == review.user.name%>
+	<%=link_to "edit" ,edit_review_path(review) %>
+	<br>
+	<br>
+	<%= button_to "delete review",movie_review_path(review),method: :delete %>
+	<% end %>
+	<br>
+	<br>
+</li>
+<br>
+<% end %>
+</ul>
 
-	<!-- Reviews -->
-	<article class="media">
-		<figure class="media-left">
-			<%= @movie.title %>
-		</figure>
-		<div class="media-content">
-			<div class="content">
-				<p>
-					<% @movie.reviews.each do |review| %>
-						<strong><%= review.user.name %></strong> 
-						<small>Rating: <%= review.rating %></small> <br>
-						<br>
-						<%=review.description %> 
-					<% end %>
-				</p>
-			</div>
-		</div>
-		<div class="media-right">
-			<button class="delete"></button>
-		</div>
-</div>
-	</article>
+<p><%= link_to "add review",movie_review_path(@movie)  %></p>
 
-	
-</div>
-</div>
+

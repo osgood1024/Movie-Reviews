@@ -3,8 +3,28 @@
 
 <!-- Displays users watchlist -->
 <h2>Watchlist</h2>
+<ul>
 <% @user.watchlists.each do |watchlist| %>
+<li>
+	
+	Title: <%= watchlist.movie.title %> - <% if @current_user.name == watchlist.user.name  %>
+	<%= button_to "Remove from watchlist", watchlist_path(watchlist), method: :delete %>
+	<% end %>
+	<p>Genre: <%= watchlist.movie.genre %></p>
+	<p>Release date: <%= watchlist.movie.release_date %></p>
+	<img src="https://image.tmdb.org/t/p/w500/<%= watchlist.movie.poster_path %>">
+	<br>
+	<br>
+	Overview:<%= watchlist.movie.overview %>
+	<br>
+	<% if @current_user.name == watchlist.user.name  %>
+	<%= link_to "add review" , movie_review_path(watchlist.movie)%>
+	<% end %>
+</li>
 
-	<p><%= watchlist.movie.title %> </p>
-
+<br>
+</ul>
 <% end %>
+
+
+

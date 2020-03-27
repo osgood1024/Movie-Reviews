@@ -1,0 +1,14 @@
+<h1>Watchlist</h1>
+
+<ul>
+<%= @watchlist.movie.each do |movie| %>
+    <li>
+        Title:<%= movie.title %><br>
+        Genre:<%= movie.genre %><br>
+        Release_date:<%= movie.release_date %> <br>
+        <%= movie.poster_path %>
+        Overview: <%= movie.overview %>
+        
+    </li>
+<% end %>
+</ul>

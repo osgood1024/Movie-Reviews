@@ -27,7 +27,7 @@ resp = RestClient.get('https://api.themoviedb.org/3/genre/movie/list?api_key=4d5
 data = JSON.parse(resp)
 genres = data["genres"]
 
-while page <= 500
+while page <= 10
   #Making the request to the movie database 
   resp = RestClient.get("https://api.themoviedb.org/3/movie/popular/?api_key=#{api_key}&language=en-US&page=#{page}")
   #parse 

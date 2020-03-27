@@ -1,9 +1,12 @@
 <!-- User New/Edit Form -->
 <%if flash[:errors] %>
     <% flash[:errors].each do |error| %>
-   		<%= error %>
+   		<p style="color: red; ">
+        <%= error %>
+    </p>
     <% end %>
 <% end %>
+
 
 <div class="card text-center">
     <div class="card-body">
@@ -30,6 +33,8 @@
             <div class="btn btn-primary btn-light"><%= f.submit  %></div>
             
         <% end %>
+      <%= link_to "Already have an account", new_login_path %>
     </div>
 
 </div>
+

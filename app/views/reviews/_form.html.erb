@@ -1,5 +1,3 @@
-
-
 <div class="card text-center">
     <div class="card-body">
         <img class="card-img-top " src="https://cdn4.iconfinder.com/data/icons/modern-business-8/24/Material_icons-07-30-512.png" style="width: 20%"alt="Card image">
@@ -20,13 +18,10 @@
             </div> <%= f.text_field :likes %>
 			<br>
 			<br>
-			<%= f.label :movie_id %>
-<%= f.collection_select :movie_id, Movie.all, :id, :title %>
-<br>
-<%= f.label :user_id %>
-<%= f.collection_select :user_id, User.all , :id, :name %>
-<br>
-<br>
+    <br>
+    <%= f.hidden_field :movie_id, value: @movie.id %>
+   <br>
+    <br>
             <div class="btn btn-primary btn-light"><%= f.submit  %></div>
             
         <% end %>
@@ -35,3 +30,4 @@
 </div>
 
     
+
