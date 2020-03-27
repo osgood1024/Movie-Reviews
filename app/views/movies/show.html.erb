@@ -1,11 +1,14 @@
 
-<%= button_to "add to watchlist", user_watchlist_path(watchlist:{user_id:@current_user.id,movie_id:@movie.id}),method: :post %>
 
 
-<div class="jumbotron" style="background-image: url(https://image.tmdb.org/t/p/original<%= @movie.backdrop_path %>); height: 500px; width: 100%; background-position: center; background-repeat: no-repeat;  max-width: 100%;
+<div class="jumbotron jumbotron-fluid" style="background-image: url(https://image.tmdb.org/t/p/original<%= @movie.backdrop_path %>); height: 500px; width: 100%; background-position: center; background-repeat: no-repeat;  max-width: 100%; margin-bottom: 0px;
   ">
 </div>
-<div class="container" style = "text-align: center;">
+
+<div class=" bg-dark" style="margin: auto; width: 100%;">
+
+
+<div class="container" style = "text-align: center; margin-top: 10px; min-height: 1500px;">
 <div class="card">
 	<!-- Poster -->
 	<img src="https://image.tmdb.org/t/p/w500/<%= @movie.poster_path %>" alt="" class="card-img-top" style="width: 20%; margin: auto;">
@@ -16,30 +19,51 @@
 
 	<h3>Genre: <%= @movie.genre %></h3>
 
+	<h3><%= @movie.release_date %></h3>
+<div style="margin-bottom: 10pt;">
 
-<hr>
-<h3>Reviews:</h3>
-<ul>
-	<% @movie.reviews.each do |review| %>
-	
-<li>
-	Username: <%= review.user.name %><br>
-	Rating: <%= review.rating %><br>
-	Description: <%=review.description %> <br>
-	Like: <%= review.likes %> <br>
-	<% if @current_user.name == review.user.name%>
-	<%=link_to "edit" ,edit_review_path(review) %>
-	<br>
-	<br>
-	<%= button_to "delete review",movie_review_path(review),method: :delete %>
-	<% end %>
-	<br>
-	<br>
-</li>
+<%= button_to "add to watchlist", user_watchlist_path(watchlist:{user_id:@current_user.id,movie_id:@movie.id}),method: :post %>
+</div>
+
+</div>
+
 <br>
-<% end %>
-</ul>
 
-<p><%= link_to "add review",movie_review_path(@movie)  %></p>
+  <h2 class="text-light">Reviews</h2>
+<div class="container mt-3 bg-light">
+  
+			
+  <div class="media border p-3">
+			<% @movie.reviews.each do |review| %>
+    <div class="media-body">
 
 
+
+			
+
+			Username: <%= review.user.name %><br>
+			Rating: <%= review.rating %><br>
+			Description: <%=review.description %> <br>
+			Like: <%= review.likes %> <br>
+			<% if @current_user.name == review.user.name%>
+			<%=link_to "edit" ,edit_review_path(review) %>
+			<br>
+			<br>
+			<%= button_to "delete review",movie_review_path(review),method: :delete %>
+			<% end %>
+			<br>
+			<br>
+	
+		<br>
+		<% end %>
+	
+
+		<p><%= link_to "add review",movie_review_path(@movie)  %></p>
+
+    </div>
+  </div>
+<hr>
+
+
+
+</div>
