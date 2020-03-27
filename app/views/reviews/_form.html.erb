@@ -1,23 +1,33 @@
+<div class="card text-center">
+    <div class="card-body">
+        <img class="card-img-top " src="https://cdn4.iconfinder.com/data/icons/modern-business-8/24/Material_icons-07-30-512.png" style="width: 20%"alt="Card image">
+        
+        <%= form_for @review do |f| %>
 
-<%if flash[:errors] %>
-    <% flash[:errors].each do |error| %>
-   		<p style="color: red; ">
-        <%= error %>
-    </p>
-    <% end %>
-<% end %>
+            <div class="card-title">
+				<%= f.label :rating %>
+            </div>
+            <%= f.text_field :rating %>
 
-<%= form_for @review do |f| %>
-<%= f.label :rating %>
-<%= f.number_field :rating %>
-<br>
-<%= f.label :description %>
-<%= f.text_area :description %>
-<br>
-<%= f.label :likes %>
-<%= f.number_field :likes %>
-<br>
-<%= f.hidden_field :movie_id, value: @movie.id %>
-<br>
-<%= f.submit %>
-<% end %>
+			<div class="card-title">
+				<%= f.label :description %>
+            </div> <%= f.text_field :description %>
+
+			<div class="card-title">
+				<%= f.label :likes %>
+            </div> <%= f.text_field :likes %>
+			<br>
+			<br>
+    <br>
+    <%= f.hidden_field :movie_id, value: @movie.id %>
+   <br>
+    <br>
+            <div class="btn btn-primary btn-light"><%= f.submit  %></div>
+            
+        <% end %>
+    </div>
+
+</div>
+
+    
+

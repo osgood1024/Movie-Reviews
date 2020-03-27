@@ -7,12 +7,34 @@
     <% end %>
 <% end %>
 
-<%= form_for @user do |f| %>
-	<%= f.label "Name:" %> <%= f.text_field :name %>
-	<%= f.label "Password:" %><%= f.password_field :password %>
-	
-	<%= f.submit %>
-	<br>
-	<br>
-	<%= link_to "Already have an account", new_login_path %>
-<% end %>
+
+<div class="card text-center">
+    <div class="card-body">
+        <img class="card-img-top " src="https://icons-for-free.com/iconfiles/png/512/mood+18px-131987943134841189.png" style="width: 20%"alt="Card image">
+        
+        <%= form_for @user do |f| %>
+
+            <div class="card-title">
+                <%= f.label :name %>
+            </div>
+
+            <%= f.text_field :name %>
+            <br>
+            <br>
+
+            <div class="card-title">
+                <%= f.label :password %>
+            </div>
+
+            <%= f.password_field :password %>
+            <br>
+            <br>
+
+            <div class="btn btn-primary btn-light"><%= f.submit  %></div>
+            
+        <% end %>
+      <%= link_to "Already have an account", new_login_path %>
+    </div>
+
+</div>
+

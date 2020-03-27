@@ -1,17 +1,28 @@
-<h1>Movies</h1>
+</div>
+<!-- Page Content -->
+<div class="container">
+s="font-weight-light text-center  mt-4 mb-0">Popular Movies</h1>
 
-<% if flash[:errors] %>
-<% flash[:errors].each do |error| %>
-    <p style="color: red; ">
-        <%= error %>
-    </p>
-    <% end %>
-<% end %>
+  <hr class="mt-2 mb-5">
 
-<ul>
-<% @movies.each do |movie| %>
-    <li>
-        <%=link_to movie.title, movie %>
-    </li>
+  <div class="row text-center text-lg-left">
+
+
+<% @movies.first(400).each do |movie| %>
+    <div class="col-lg-3 col-md-4 col-6">
+    <div class="box">
+        <a href="#" class="d-block mb-4 h-100">
+            <img class="img-fluid img-thumbnail" src="https://image.tmdb.org/t/p/original<%=movie.poster_path %>" alt="">
+        </a>
+        <div class="text-center">
+            <%=link_to movie.title, movie %>
+        </div>
+    </div>
+
+    </div>
 <% end %>
-</ul>
+  </div>
+
+</div>
+
+
