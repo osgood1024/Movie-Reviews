@@ -1,10 +1,18 @@
-<h1><%=@review.movie.title %></h1>
+<h1>All my reviews</h1>
 
+<ul>
+<% @review.each do |movie| %>
+<li>
+	
+	Title: <%= link_to movie.title, movie_path%> 
+	<p>Genre: <%= movie.genre %></p>
+	<p>Release date: <%= movie.release_date %></p>
+	<img src="https://image.tmdb.org/t/p/w500/<%=movie.poster_path %>">
+	<br>
+	<br>
+	Overview:<%= movie.overview %>
+</li>
 
-Username: <%= @review.user.name %><br>
-Rating: <%= @review.rating %><br>
-Description: <%= @review.description %> <br>
-Like: <%= @review.likes %>
-
-
-<p><%= link_to "add review", new_review_path(@review.id) %></p>
+<br>
+</ul>
+<% end %>

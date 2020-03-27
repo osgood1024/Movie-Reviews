@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
     def logged_in
         if @current_user
         else
-            redirect_to new_user_path
+            redirect_to new_login_path
         end
     end
 

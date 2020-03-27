@@ -1,3 +1,12 @@
+
+<%if flash[:errors] %>
+    <% flash[:errors].each do |error| %>
+   		<p style="color: red; ">
+        <%= error %>
+    </p>
+    <% end %>
+<% end %>
+
 <%= form_for @review do |f| %>
 <%= f.label :rating %>
 <%= f.number_field :rating %>
@@ -8,11 +17,7 @@
 <%= f.label :likes %>
 <%= f.number_field :likes %>
 <br>
-<%= f.label :movie_id %>
-<%= f.collection_select :movie_id, Movie.all, :id, :title %>
-<br>
-<%= f.label :user_id %>
-<%= f.collection_select :user_id, User.all , :id, :name %>
+<%= f.hidden_field :movie_id, value: @movie.id %>
 <br>
 <%= f.submit %>
 <% end %>

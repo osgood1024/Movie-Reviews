@@ -1,57 +1,62 @@
 class ReviewsController < ApplicationController
 
-  before_action :find_review ,only: [:show, :edit, :update, :destroy]
+  before_action :find_review ,only: [:edit, :update, :destroy, :show]
+
+  def show
+  end
 
   def new
     @review=Review.new()
+    @movie=Movie.find(params[:id])
+
   end
 
   def create
-    review=Review.create(review_params)
-    if review.valid?
-      redirect_to review
+    
+    review=Review.new(review_params)
+    review.user_id=@current_user.id
+    if review.save
+      redirect_to movie_path(review.movie_id)
     else
-      flash[:error]=review.errors.full_messsages 
-      redirect_to reviews_new_path
+      flash[:errors]=review.errors.full_messages 
+      redirect_to movie_review_path(review.movie_id)
     end
   end
 
   def edit
+    @movie=@review.movie
   end
 
   def update
     @review.update(review_params)
     if @review.valid?
-      redirect_to reviews_show_path
+      redirect_to movie_path(@review.movie.id)
     else      
-      flash[:error]=@review.errors.full_messsages 
-      redirect_to reviews_edit_path
+      flash[:errors]=@review.errors.full_messages 
+      redirect_to edit_review_path
     end
-
   end
 
   def destroy
+
     @review.destroy
-    redirect_to reviews_show_path(@review.users.id)
+
+    redirect_to  movie_path(@review.movie.id)
   end
 
-  def index
-    @reviews=Review.all
-  end
-
-  def show
-    @movies=Movie.all
-    @users=User.all
-  end
   
   private
-
-  def review_params
-    params.require(:review).permit!
-  end
 
   def find_review
     @review=Review.find(params[:id])
   end
+
+
+  def review_params
+    params.require(:review).permit(:movie_id, :rating, :description, :likes)
+  end
+
+
+
 
 end

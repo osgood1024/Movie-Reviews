@@ -6,6 +6,10 @@
 	<% @users.each do |user| %>
 		<li>
 			<%= link_to user.name, user %> <br>
+
+			<%user.list_watchlist.each do |watchlist|%>
+				<p>-<%= watchlist %></p>
+			<% end %>
 			<br>
 		</li>
 	<% end %>

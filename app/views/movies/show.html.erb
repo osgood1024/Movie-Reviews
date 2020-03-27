@@ -1,4 +1,6 @@
 <h1><%= @movie.title %></h1>
+<%= button_to "add to watchlist", user_watchlist_path(watchlist:{user_id:@current_user.id,movie_id:@movie.id}),method: :post %>
+
 
 <h3>Released: <%= @movie.release_date %></h3>
 
@@ -13,17 +15,29 @@
 <!-- Backdrop -->
 <img src="https://image.tmdb.org/t/p/original<%= @movie.backdrop_path %>" alt="Movie Backdrop of <%=@movie.title%>">
 
+<hr>
 <h3>Reviews:</h3>
 <ul>
 	<% @movie.reviews.each do |review| %>
+	
 <li>
 	Username: <%= review.user.name %><br>
 	Rating: <%= review.rating %><br>
 	Description: <%=review.description %> <br>
-	Like: <%= review.likes %>
+	Like: <%= review.likes %> <br>
+	<% if @current_user.name == review.user.name%>
+	<%=link_to "edit" ,edit_review_path(review) %>
+	<br>
+	<br>
+	<%= button_to "delete review",movie_review_path(review),method: :delete %>
+	<% end %>
+	<br>
+	<br>
 </li>
 <br>
 <% end %>
 </ul>
 
-<p><%= link_to "add review", new_review_path  %></p>
+<p><%= link_to "add review",movie_review_path(@movie)  %></p>
+
+

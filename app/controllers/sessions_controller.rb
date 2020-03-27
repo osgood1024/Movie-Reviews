@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
         redirect_to user_path(@user.id)
         else
             flash[:errors]=["username or password did not match"]
-            redirect_to login_path
+            redirect_to new_login_path
         end
 
     end

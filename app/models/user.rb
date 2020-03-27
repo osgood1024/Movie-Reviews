@@ -8,4 +8,10 @@ class User < ApplicationRecord
 
 	has_secure_password
 
+
+	def list_watchlist
+		self.watchlists.map {|watchlist| watchlist.movie.title}.last(3)
+	end
+
+
 end

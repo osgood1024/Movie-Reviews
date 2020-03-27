@@ -1,14 +1,18 @@
 <!-- User New/Edit Form -->
 <%if flash[:errors] %>
     <% flash[:errors].each do |error| %>
-   		<%= error %>
+   		<p style="color: red; ">
+        <%= error %>
+    </p>
     <% end %>
 <% end %>
 
 <%= form_for @user do |f| %>
-	<%= f.label :name %> <br>
-	<%= f.text_field :name %><br>
-	<%= f.label :password %><br>
-	<%= f.password_field :password %>
+	<%= f.label "Name:" %> <%= f.text_field :name %>
+	<%= f.label "Password:" %><%= f.password_field :password %>
+	
 	<%= f.submit %>
+	<br>
+	<br>
+	<%= link_to "Already have an account", new_login_path %>
 <% end %>

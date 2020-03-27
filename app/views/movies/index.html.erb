@@ -1,5 +1,13 @@
 <h1>Movies</h1>
 
+<% if flash[:errors] %>
+<% flash[:errors].each do |error| %>
+    <p style="color: red; ">
+        <%= error %>
+    </p>
+    <% end %>
+<% end %>
+
 <ul>
 <% @movies.each do |movie| %>
     <li>
