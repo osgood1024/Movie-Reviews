@@ -1,24 +1,9 @@
-# README
+# Movie Reviews
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+[image](https://github.com/osgoodgunawan/Movie-Reviews-Website/blob/master/public/home.png)
 
-* Ruby version
 
-* System dependencies
+## Description 
+A movie review website where users can check the review before watching the shows/movies or users can leave a review after watching.
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
