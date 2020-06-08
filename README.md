@@ -1,7 +1,7 @@
 # Movie Reviews
 
 
-[image](https://github.com/osgoodgunawan/Movie-Reviews-Website/blob/master/public/home.png)
+<img src = 'https://github.com/osgoodgunawan/Movie-Reviews-Website/blob/master/public/home.png' />
 
 
 ## Description 
