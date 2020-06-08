@@ -10,17 +10,18 @@ A movie review website where users can check the review before watching the show
 ## Installation for Demo
 type this in your terminal
 - git clone `https://github.com/osgoodgunawan/Movie-Reviews.git`
-- cd Movie-Reviews
-- bundler
+- cd Movie-Reviews or code Movie-Reviews(recommended operates with VScode) 
+- create a new file called ".env " and input SECRET_KEY=4d53af2a0263d8997362e095ef2fc1d4 inside .env file
+- run bundler
 - yarn install --check-files(you might need this one to update)
 - rails db:migrate
 - rails db:seed
-
-**If rails db:seed is not working, create a file .env and input SECRET_KEY=4d53af2a0263d8997362e095ef2fc1d4**
-
 - rails s
 
-*live demo comming soon* 
+**Note: You need to create a file .env and input SECRET_KEY=4d53af2a0263d8997362e095ef2fc1d4 to run rails db:seed (this is for the api key)**
+
+
+*Video demo comming soon for better understanding of installation* 
 
 ## Contribute 
 To contribute Movie Reviews, follow these steps:
