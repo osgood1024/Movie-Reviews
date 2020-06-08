@@ -12,7 +12,7 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    
+  
     review=Review.new(review_params)
     review.user_id=@current_user.id
     if review.save
