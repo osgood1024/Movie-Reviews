@@ -12,9 +12,10 @@ type this in your terminal
 - git clone `https://github.com/osgoodgunawan/Movie-Reviews.git`
 - cd Movie-Reviews
 - bundler
-- yarn install --check-files
+- yarn install --check-files(you might need this one to update)
 - rails db:migrate
 - rails db:seed
+**Note:if rails db:seed is not working, create a file .env and input SECRET_KEY=4d53af2a0263d8997362e095ef2fc1d4 **
 - rails s
 
 *live demo comming soon* 
