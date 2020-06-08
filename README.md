@@ -21,7 +21,7 @@ type this in your terminal
 **Note: You need to create a file .env and input SECRET_KEY=4d53af2a0263d8997362e095ef2fc1d4 to run rails db:seed (this is for the api key)**
 
 
-*Video demo comming soon for better understanding of installation* 
+*Video and live demo coming soon for better understanding of installation and the application* 
 
 ## Contribute 
 To contribute Movie Reviews, follow these steps:
