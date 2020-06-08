@@ -11,6 +11,8 @@ A movie review website where users can check the review before watching the show
 type this in your terminal
 - git clone `https://github.com/osgoodgunawan/Movie-Reviews.git`
 - cd Movie-Reviews
+- bundler
+- yarn install --check-files
 - rails db:migrate
 - rails db:seed
 - rails s
