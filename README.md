@@ -5,7 +5,13 @@
 
 
 ## Description 
-A movie review website where users can check the review before watching the shows/movies or users can leave a review after watching. Me and my partner utilized [movie db API](https://developers.themoviedb.org/3/getting-started/introduction) to pull and parse movies’ data.
+A movie review website where users can check the review before watching the shows/movies or users can leave a review. My partner and I utilized [movie db API](https://developers.themoviedb.org/3/getting-started/introduction)for pulling and parsing movies’ data.
+
+## Installation for Demo
+type this in your terminal
+- git clone https://github.com/osgoodgunawan/Movie-Reviews.git
+- cd Movie-Reviews 
+*live demo comming soon *
 
 ## Contribute 
 To contribute Movie Reviews, follow these steps:
