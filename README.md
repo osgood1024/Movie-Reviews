@@ -9,7 +9,7 @@ A movie review website where users can check the review before watching the show
 
 ## Installation for Demo
 type this in your terminal
-- git clone https://github.com/osgoodgunawan/Movie-Reviews.git
+- git clone `https://github.com/osgoodgunawan/Movie-Reviews.git`
 - cd Movie-Reviews 
 
 *live demo comming soon* 
